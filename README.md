@@ -109,7 +109,7 @@ Das Skript `vpn_session_history.py` aktualisiert das CSV‑Log basierend auf dem
    Um das Log kontinuierlich aktuell zu halten, empfiehlt sich ein Cron‑Job, der das Skript z.&nbsp;B. jede Minute ausführt.  Öffnen Sie dazu mit `crontab -e` die Cron‑Tabelle und fügen Sie folgenden Eintrag hinzu (Pfad anpassen):
 
    ```cron
-   * * * * * /usr/bin/python3 /pfad/zu/vpn_session_history.py
+   * * * * * /usr/bin/python3 /pfad/zu/vpn_session_history.py >/var/log/vpn_session_history.log 2>&1
    ```
 
    Stellen Sie sicher, dass der Cron‑Benutzer die nötigen Rechte auf die Dateien besitzt.  Wenn Sie eine virtuelle Umgebung verwenden, geben Sie statt `/usr/bin/python3` den Pfad zu Ihrem `venv`‑Python an.
@@ -241,7 +241,7 @@ python3 vpn_session_history.py
 To keep the log up to date, schedule it via cron, for example every minute:
 
 ```cron
-* * * * * /usr/bin/python3 /path/to/vpn_session_history.py
+* * * * * /usr/bin/python3 /path/to/vpn_session_history.py >/var/log/vpn_session_history.log 2>&1
 ```
 
 Make sure the cron user has the required permissions.
